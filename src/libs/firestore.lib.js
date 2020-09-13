@@ -1,7 +1,7 @@
 const admin = require("firebase-admin")
 
 const getDbConnector = () => {
-  const path = `../..${process.env.GOOGLE_APPLICATION_CREDENTIALS}`
+  const path = `../..${process.env.CREDENTIALS}`
   const serviceAccount = require(path)
   const credential = admin.credential.cert(serviceAccount)
   admin.initializeApp({ credential })
