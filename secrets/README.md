@@ -14,7 +14,7 @@ On this folder, you need to create a required secrets files to the app. This fol
 
     | Variable | Description |
     | --- | --- |
-    | `GOOGLE_APPLICATION_CREDENTIALS` | Path to `credentials.json`. *Recommended value: `./secrets/credentials.json`.* |
+    | `CREDENTIALS` | Path to `credentials.json`. *Recommended value: `/secrets/credentials.json`.* |
     | `PORT` | Port to run the app. *Ex. 3000* |
     | `API_KEY` | Key sended on header requests to allow the usage. |
 
