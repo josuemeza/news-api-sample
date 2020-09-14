@@ -10,7 +10,7 @@ class News {
       ? new Date(data["updatedAt"]) 
       : new Date()
   }
-  toJSON() {
+  json() {
     return {
       "uuid": this.uuid,
       "title": this.title,

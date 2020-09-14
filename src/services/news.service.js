@@ -21,7 +21,7 @@ newsRouter.route("/")
       ...request.body
     }
     const news = new News(data)
-    const json = news.toJSON()
+    const json = news.json()
     await firestore
       .collection(collectionId)
       .doc(news.uuid)
@@ -45,7 +45,8 @@ newsRouter.route("/:uuid")
       ...request.body
     }
     const news = new News(data)
-    const json = news.toJSON()
+    news.updatedAt = new Date()
+    const json = news.json()
     await firestore
       .collection(collectionId)
       .doc(news.uuid)

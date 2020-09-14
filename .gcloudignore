@@ -1,9 +1,16 @@
+.git/
 node_modules/
+scripts/
 secrets/*.env
 secrets/*.yml
+secrets/README.md
 yarn-error.log
 yarn.lock
 server.js
+LICENSE
+README.md
+.gcloudignore
+.gitignore
 
 # General
 .DS_Store
