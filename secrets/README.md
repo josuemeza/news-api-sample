@@ -33,3 +33,12 @@ On this folder, you need to create a required secrets files to the app. This fol
     | `GCP_CF_MEMORY` | Memory to allocate on the runtime. |
     | `GCP_CF_ENV_FILE` | Path to environment variables file to allocate on the cloud function. *Recommended value: `./secrets/function.env.yml`* |
     | `GCP_CF_MAX_INSTANCES` | Max number of instances allowed to execute the function. |
+
+2. `function.env.yml`
+
+    Contains the environment variables to set on the cloud function. Next table shows the needed variables on this file.
+
+    | Variable | Description |
+    | --- | --- |
+    | `CREDENTIALS` | Path to `credentials.json`. |
+    | `API_KEY` | Key sended on header requests to allow the usage. |
