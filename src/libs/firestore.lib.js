@@ -1,6 +1,6 @@
 const admin = require("firebase-admin")
 
-const getDbConnector = () => {
+const initFirestore = () => {
   const path = process.env.GOOGLE_APPLICATION_CREDENTIALS
   const serviceAccount = require(path)
   const credential = admin.credential.cert(serviceAccount)
@@ -10,4 +10,4 @@ const getDbConnector = () => {
   return db
 }
 
-exports.firestore = getDbConnector()
+exports.initFirestore = initFirestore

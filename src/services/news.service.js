@@ -1,9 +1,9 @@
 const { Router } = require("express")
-const { firestore } = require("../libs/firestore.lib")
+const { initFirestore } = require("../libs/firestore.lib")
 const News = require("../model/news")
 const { v4: uuidv4 } = require('uuid')
 
-const collection = firestore.collection("news")
+const collection = initFirestore().collection("news")
 const newsRouter = Router()
 
 newsRouter.route("/")
