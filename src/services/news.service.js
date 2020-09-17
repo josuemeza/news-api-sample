@@ -55,3 +55,4 @@ newsRouter.route("/:uuid")
   })
 
 exports.newsRouter = newsRouter
+exports.collection = collection

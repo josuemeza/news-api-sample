@@ -7,6 +7,8 @@
     "develop": "nodemon server.js",
     "start": "export $(cat secrets/app.env) && sh scripts/run.sh",
     "deploy": "export $(cat secrets/infrastructure.env) && sh scripts/deploy.sh",
+    "test": "jest --runInBand --detectOpenHandles",
+    "coverage": "jest --coverage --runInBand --detectOpenHandles",
     "run-functions-framework": "functions-framework --target=app"
   },
   "dependencies": {
@@ -18,6 +20,9 @@
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "jest": "25.4.0",
+    "jest-when": "2.7.1",
+    "supertest": "^4.0.2"
   }
 }
