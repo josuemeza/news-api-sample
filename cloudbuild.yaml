@@ -2,3 +2,11 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
     args: ["scripts/deploy.sh"]
+    env:
+    - "GCP_CF_NAME=$_CF_NAME"
+    - "GCP_CF_ENTRY_POINT=$_CF_ENTRY_POINT"
+    - "GCP_CF_RUNTIME=$_CF_RUNTIME"
+    - "GCP_CF_REGION=$_CF_REGION"
+    - "GCP_CF_MEMORY=$_CF_MEMORY"
+    - "GCP_CF_MAX_INSTANCES=$_CF_MAX_INSTANCES"
+    - "APP_API_KEY=$_APP_API_KEY"

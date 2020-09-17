@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "develop": "nodemon server.js",
-    "start": "sh scripts/run.sh",
-    "deploy": "sh scripts/deploy.sh",
+    "start": "export $(cat secrets/app.env) && sh scripts/run.sh",
+    "deploy": "export $(cat secrets/infrastructure.env) && sh scripts/deploy.sh",
     "run-functions-framework": "functions-framework --target=app"
   },
   "dependencies": {
