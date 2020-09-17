@@ -15,11 +15,9 @@ const app = express()
 app.use("/news", newsRouter)
 
 beforeEach(() => {
-  when(initFirestore)
-    .calledWith()
-    .mockReturnValue({
-      collection: jest.fn()
-    })
+  initFirestore.mockReturnValue({
+    collection: jest.fn()
+  })
 })
 
 describe("GET /news", () => {
