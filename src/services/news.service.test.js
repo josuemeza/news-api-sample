@@ -15,7 +15,7 @@ const app = express()
 app.use("/news", newsRouter)
 
 beforeEach(() => {
-  when(initFirebase)
+  when(initFirestore)
     .calledWith()
     .mockReturnValue({
       collection: jest.fn()
