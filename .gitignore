@@ -1,4 +1,5 @@
 node_modules/
+coverage/
 secrets/*.json
 secrets/*.env
 secrets/*.yml
