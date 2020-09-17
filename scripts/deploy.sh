@@ -4,5 +4,5 @@ gcloud functions deploy $GCP_CF_NAME \
   --region $GCP_CF_REGION \
   --memory $GCP_CF_MEMORY \
   --max-instances $GCP_CF_MAX_INSTANCES \
-  --set-env-vars  API_KEY=$APP_API_KEY\
+  --set-env-vars  API_KEY=$APP_API_KEY \
   --trigger-http
