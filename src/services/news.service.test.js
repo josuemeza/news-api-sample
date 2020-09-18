@@ -71,8 +71,8 @@ describe("POST /news", () => {
       .end((error, response) => {
         if(error) done(error)
         const json = JSON.parse(response.text)
-        const data = { title, content } = json
-        expect(data).toEqual(body)
+        const { title, content } = json
+        expect({ title, content }).toEqual(body)
         done()
       })
   })
