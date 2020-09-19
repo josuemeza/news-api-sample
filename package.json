@@ -6,7 +6,6 @@
   "scripts": {
     "develop": "nodemon server.js",
     "start": "export $(cat secrets/app.env) && yarn run-functions-framework",
-    "deploy": "export $(cat secrets/infrastructure.env) && sh scripts/deploy.sh",
     "test": "jest --runInBand --detectOpenHandles",
     "coverage": "jest --coverage --runInBand --detectOpenHandles",
     "run-functions-framework": "functions-framework --target=app"
