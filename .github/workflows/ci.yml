@@ -12,3 +12,14 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: coverage
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Deploy with gcloud"
+        uses: actions-hub/gcloud@master
+        env:
+          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+        run: ./scripts/deploy.sh
