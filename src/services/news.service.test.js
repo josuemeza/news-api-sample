@@ -91,7 +91,7 @@ describe("PUT /news/uuid", () => {
     when(collection.doc)
       .calledWith(expect.anything())
       .mockReturnValue({
-        get: () => sample,
+        get: () => ({ data: () => sample }),
         set: (json) => json 
       })
     request(app)
