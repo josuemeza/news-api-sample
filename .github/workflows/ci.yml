@@ -22,4 +22,12 @@ jobs:
         uses: actions-hub/gcloud@master
         env:
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
-        run: ./scripts/deploy.sh
+          GCP_CF_NAME: ${{secrets.}}
+          GCP_CF_ENTRY_POINT: ${{secrets.}}
+          GCP_CF_RUNTIME: ${{secrets.}}
+          GCP_CF_REGION: ${{secrets.}}
+          GCP_CF_MEMORY: ${{secrets.}}
+          GCP_CF_MAX_INSTANCES: ${{secrets.}}
+          APP_API_KEY: ${{secrets.}}
+        with:
+          cmd: ./scripts/deploy.sh
