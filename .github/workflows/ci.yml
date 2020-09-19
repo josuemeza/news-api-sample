@@ -22,7 +22,7 @@ jobs:
         uses: actions-hub/gcloud@master
         env:
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
-          PROJECT_ID: ${{serets.GCP_PROJECT_ID}}
+          PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
           GCP_CF_NAME: ${{secrets.GCP_CF_NAME}}
           GCP_CF_ENTRY_POINT: ${{secrets.GCP_CF_ENTRY_POINT}}
           GCP_CF_RUNTIME: ${{secrets.GCP_CF_RUNTIME}}
