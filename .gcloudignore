@@ -2,6 +2,7 @@
 node_modules/
 coverage/
 scripts/
+src/**/*.test.js
 secrets/*.env
 secrets/*.yml
 secrets/README.md

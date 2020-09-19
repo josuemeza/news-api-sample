@@ -18,11 +18,14 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v2
+      - name: "Set credentials"
+        run: echo ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}} > secrets/credentials.json
       - name: "Deploy with gcloud"
         uses: actions-hub/gcloud@master
         env:
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
           PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
+          CGP_DB_CREDENTIALS: ./secrets/credentials.json
           GCP_CF_NAME: ${{secrets.GCP_CF_NAME}}
           GCP_CF_ENTRY_POINT: ${{secrets.GCP_CF_ENTRY_POINT}}
           GCP_CF_RUNTIME: ${{secrets.GCP_CF_RUNTIME}}
