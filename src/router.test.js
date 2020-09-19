@@ -1,6 +1,10 @@
 const { when } = require("jest-when")
 const { Router } = require("express")
 
+jest.mock("express", () => ({ 
+  Router: jest.fn()
+}))
+
 describe("Use service", () => {
   it("return inserted services", () => {
     const mockRouter = {
