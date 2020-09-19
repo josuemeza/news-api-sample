@@ -18,28 +18,30 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v2
-      - run: echo "${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}" > secrets/credentials.json
+      - run: echo "${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}" > ./secrets/credentials.json
         shell: bash
-      - name: "Deploy with gcloud"
-        uses: actions-hub/gcloud@master
-        env:
-          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
-          PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
-          GCP_DB_CREDENTIALS: ./secrets/credentials.json
-          GCP_CF_NAME: ${{secrets.GCP_CF_NAME}}
-          GCP_CF_ENTRY_POINT: ${{secrets.GCP_CF_ENTRY_POINT}}
-          GCP_CF_RUNTIME: ${{secrets.GCP_CF_RUNTIME}}
-          GCP_CF_REGION: ${{secrets.GCP_CF_REGION}}
-          GCP_CF_MEMORY: ${{secrets.GCP_CF_MEMORY}}
-          GCP_CF_MAX_INSTANCES: ${{secrets.GCP_CF_MAX_INSTANCES}}
-          APP_API_KEY: ${{secrets.APP_API_KEY}}
-        with:
-          args: |
-            functions deploy $GCP_CF_NAME \
-              --entry-point $GCP_CF_ENTRY_POINT \
-              --runtime $GCP_CF_RUNTIME \
-              --region $GCP_CF_REGION \
-              --memory $GCP_CF_MEMORY \
-              --max-instances $GCP_CF_MAX_INSTANCES \
-              --set-env-vars API_KEY=$APP_API_KEY,GCP_DB_CREDENTIALS=$GCP_DB_CREDENTIALS \
-              --trigger-http
+      - run: cat ./secrets/credentials.json
+        shell: bash
+      # - name: "Deploy with gcloud"
+      #   uses: actions-hub/gcloud@master
+      #   env:
+      #     APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+      #     PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
+      #     GCP_DB_CREDENTIALS: ./secrets/credentials.json
+      #     GCP_CF_NAME: ${{secrets.GCP_CF_NAME}}
+      #     GCP_CF_ENTRY_POINT: ${{secrets.GCP_CF_ENTRY_POINT}}
+      #     GCP_CF_RUNTIME: ${{secrets.GCP_CF_RUNTIME}}
+      #     GCP_CF_REGION: ${{secrets.GCP_CF_REGION}}
+      #     GCP_CF_MEMORY: ${{secrets.GCP_CF_MEMORY}}
+      #     GCP_CF_MAX_INSTANCES: ${{secrets.GCP_CF_MAX_INSTANCES}}
+      #     APP_API_KEY: ${{secrets.APP_API_KEY}}
+      #   with:
+      #     args: |
+      #       functions deploy $GCP_CF_NAME \
+      #         --entry-point $GCP_CF_ENTRY_POINT \
+      #         --runtime $GCP_CF_RUNTIME \
+      #         --region $GCP_CF_REGION \
+      #         --memory $GCP_CF_MEMORY \
+      #         --max-instances $GCP_CF_MAX_INSTANCES \
+      #         --set-env-vars API_KEY=$APP_API_KEY,GCP_DB_CREDENTIALS=$GCP_DB_CREDENTIALS \
+      #         --trigger-http
