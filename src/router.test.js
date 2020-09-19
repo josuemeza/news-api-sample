@@ -8,7 +8,7 @@ describe("Use service", () => {
     const mockRouter = {
       use: jest.fn()
     }
-    procces.env.GCP_DB_CREDENTIALS = "./secrets/credentials.json"
+    process.env.GCP_DB_CREDENTIALS = "./secrets/credentials.json"
     when(Router)
       .calledWith()
       .mockReturnValue(mockRouter)
