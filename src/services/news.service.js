@@ -51,7 +51,7 @@ newsRouter.route("/:uuid")
     await collection
       .doc(request.params.uuid)
       .delete()
-    response.json({ message: "deleted" })
+    response.json({ uuid: request.params.uuid })
   })
 
 exports.newsRouter = newsRouter
