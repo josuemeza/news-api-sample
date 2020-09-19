@@ -25,7 +25,7 @@ jobs:
         env:
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
           PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
-          CGP_DB_CREDENTIALS: ./secrets/credentials.json
+          GCP_DB_CREDENTIALS: ./secrets/credentials.json
           GCP_CF_NAME: ${{secrets.GCP_CF_NAME}}
           GCP_CF_ENTRY_POINT: ${{secrets.GCP_CF_ENTRY_POINT}}
           GCP_CF_RUNTIME: ${{secrets.GCP_CF_RUNTIME}}
@@ -41,5 +41,5 @@ jobs:
               --region $GCP_CF_REGION \
               --memory $GCP_CF_MEMORY \
               --max-instances $GCP_CF_MAX_INSTANCES \
-              --set-env-vars API_KEY=$APP_API_KEY \
+              --set-env-vars API_KEY=$APP_API_KEY,GCP_DB_CREDENTIALS=$GCP_DB_CREDENTIALS \
               --trigger-http
