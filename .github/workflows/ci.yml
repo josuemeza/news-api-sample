@@ -18,8 +18,8 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v2
-      - name: "Set credentials"
-        run: echo ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}} > secrets/credentials.json
+      - run: echo "${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}" > secrets/credentials.json
+        shell: bash
       - name: "Deploy with gcloud"
         uses: actions-hub/gcloud@master
         env:
