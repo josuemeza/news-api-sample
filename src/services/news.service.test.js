@@ -110,8 +110,16 @@ describe("PUT /news/uuid", () => {
   })
 })
 
-// describe("", () => {
-//   it("", (done) => {
-
-//   })
-// })
+describe("DELETE /news/uuid", () => {
+  it("return deleted message", (done) => {
+    const expected = { message: "deleted" }
+    when(collection.doc)
+      .calledWith(expect.anything())
+      .mockReturnValue({
+        delete: () => true 
+      })
+    request(app)
+      .delete("/news/uuid")
+      .expect(200, expected, done)
+  })
+})
