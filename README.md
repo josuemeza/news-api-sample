@@ -21,8 +21,8 @@ Execute any command like `yarn COMMAND`.
 | --- | --- |
 | `develop` | Run a development environment using `nodemon` |
 | `start` | Run a locally staging environment using `google functions framework` |
-| `deploy` | Deploy a new cloud function revision |
-| `run-functions-framework` | *(same to `start`)* Run the `google functions framework` without environment variables |
+| `test` | Run tests |
+| `coverage` | Run coverage |
 
 # Author
 

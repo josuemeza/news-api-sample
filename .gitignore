@@ -2,7 +2,6 @@ node_modules/
 coverage/
 secrets/*.json
 secrets/*.env
-secrets/*.yml
 yarn-error.log
 yarn.lock
 

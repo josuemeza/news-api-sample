@@ -1,7 +1,3 @@
-require("dotenv").config({
-  path: "./secrets/app.env",
-})
-
 const { app } = require("./index")
 
 app.listen(process.env.PORT, () => {

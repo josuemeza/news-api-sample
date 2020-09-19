@@ -4,11 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "develop": "nodemon server.js",
-    "start": "export $(cat secrets/app.env) && yarn run-functions-framework",
+    "develop": "export $(cat secrets/app.env) && nodemon server.js",
+    "start": "export $(cat secrets/app.env) && functions-framework --target=app",
     "test": "jest --runInBand --detectOpenHandles",
-    "coverage": "jest --coverage --runInBand --detectOpenHandles",
-    "run-functions-framework": "functions-framework --target=app"
+    "coverage": "jest --coverage --runInBand --detectOpenHandles"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -18,7 +17,6 @@
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
-    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4",
     "jest": "25.4.0",
     "jest-when": "2.7.1",
