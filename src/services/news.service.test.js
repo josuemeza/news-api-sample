@@ -78,6 +78,38 @@ describe("POST /news", () => {
   })
 })
 
+describe("PUT /news/uuid", () => {
+  it("returns updated news", (done) => {
+    const uuid = "uuid"
+    const body = {
+      content: "new content"
+    }
+    const expected = {
+      title: sample.title,
+      content: body.content
+    }
+    when(collection.doc)
+      .calledWith(expect.anything())
+      .mockReturnValue({
+        get: () => sample,
+        set: (json) => json 
+      })
+    request(app)
+      .put("/news/" + uuid)
+      .send(body)
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((error, response) => {
+        if(error) done(error)
+        const json = JSON.parse(response.text)
+        const { title, content } = json
+        expect({ title, content }).toEqual(expected)
+        done()
+      })
+  })
+})
+
 // describe("", () => {
 //   it("", (done) => {
 
